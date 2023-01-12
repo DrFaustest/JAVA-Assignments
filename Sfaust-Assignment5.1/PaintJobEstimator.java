@@ -1,3 +1,6 @@
+
+
+
 import java.util.Scanner;
 import java.text.NumberFormat;
 
@@ -15,6 +18,8 @@ public class PaintJobEstimator
         
         //Main Program Start
         System.out.println("Welcome to the Happy Accidents Paint Company Estimator\n");
+
+
         
         String cont = "y"; // prime input for looping
         while (cont.equalsIgnoreCase("y"))
@@ -26,17 +31,16 @@ public class PaintJobEstimator
             System.out.print("Enter cost of paint(per gallon): ");
             double gallonPaintCost = input.nextDouble();
 
-
             // calculate paint, labor, and costs associated with the job
-            double gallonsOfPaint = paintSquareFootage / 112; // round this up.
+            double gallonsOfPaint = calculateGallonsPaint(paintSquareFootage);
 
-            double hoursOfLabor = paintSquareFootage / 112 * 8;  // round this up too.
+            double hoursOfLabor = calculateLabor(paintSquareFootage);
 
-            double totalPaintCost = gallonPaintCost * gallonsOfPaint;
+            double totalPaintCost = calculatePaintCost(gallonPaintCost, gallonsOfPaint);
 
-            double laborCharges = hoursOfLabor * 35;
+            double laborCharges = calculateLaborCost(hoursOfLabor);
 
-            double totalJob = laborCharges + totalPaintCost;
+            double totalJob = totalPaintCost + laborCharges;
 
             
             // Output the results
@@ -50,7 +54,29 @@ public class PaintJobEstimator
             // asks to repeat or not
             System.out.print("Continue? (y/n): ");
             cont = input.next();
+
+
         }
     }
+
+            public static int calculateGallonsPaint(double paintSquareFeet){
+                int gallonsOfPaint = (int) Math.ceil(paintSquareFeet / 112);
+                return gallonsOfPaint;
+            }
+
+            public static int calculateLabor(double paintSquareFeet){
+                int hoursOfLabor = (int) Math.ceil((paintSquareFeet / 12) * 8);
+                return hoursOfLabor;
+            }
+
+            public static double calculatePaintCost(double gallonPaintCost, double gallonsOfPaint){
+                double totalPaintCost = gallonPaintCost * gallonsOfPaint;
+                return totalPaintCost;
+            }
+
+            public static double calculateLaborCost(double hoursOfLabor){
+                double laborCharges = hoursOfLabor * 35;
+                return laborCharges;
+            }
  
 }
