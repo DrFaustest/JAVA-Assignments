@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+  <title>Assignment #5</title>
+  <meta charset='utf-8'>  
+  <link href='https://fonts.googleapis.com/css?family=Hepta+Slab&display=swap' rel='stylesheet'>
+  <link rel='stylesheet' type='text/css' href='css/style.css' />
+  <script src='script.js'></script>
+</head>
+<body> 
+    <h1>Food Service Survey</h1>
+    <div>
+        <p>Thank you for eating at our establishment! Please fill out this survey to 
+        help us improve our service!</p>
+    </div>
+    <div id='errorHolder' class='hidden'></div>
+    <form id='contactForm' method='post' action='http://grosas.faculty.mccinfo.net/courses/info2124/v21fa/assignment05/processform.php'>
+        <div id='firstNameHolder'>
+            <label for='firstName'>Please Enter Your First Name</label>
+            <input type='text' name='firstName' id='firstName' />
+            <span></span>
+        </div>
+        <div id='lastNameHolder'>
+            <label for='lastName'>Please Enter Your Last Name</label>
+            <input type='text' name='lastName' id='lastName' />
+            <span></span>
+        </div>
+        <div id='emailAddressHolder'>
+            <label for='emailAddress'>Please enter your MCC Student Email Address</label>
+            <input type='text' name='emailAddress' id='emailAddress' />
+            <span></span>
+        </div>
+        <div id='ageHolder'>
+            <label for='age'>Please Input Your Age</label>
+            <input type='text' name='age' id='age' />
+            <span></span>
+        </div>
+        <div id='mealHolder'>
+            <label for='meal'>Please Select Your Meal</label><br/>
+            <input type="radio" name="meal" id="breakfast" 
+              value="breakfast">Breakfast<br/>
+            <input type="radio" name="meal" id="lunch" 
+              value="lunch">Lunch<br/>
+            <input type="radio" name="meal" id="dinner" 
+              value="dinner">Dinner
+        </div><span></span>
+        <div id='mealRatingHolder'>
+            <label for='mealRating'>Please rate your meal</label><br/>
+            <input type="radio" name="rating" id="0" 
+              value="0">☆☆☆☆<br/>
+            <input type="radio" name="rating" id="1" 
+              value="1">★☆☆☆<br/>
+            <input type="radio" name="rating" id="2" 
+              value="2">★★☆☆<br/>
+            <input type="radio" name="rating" id="3" 
+              value="3">★★★☆<br/>
+            <input type="radio" name="rating" id="4" 
+              value="4">★★★★
+        </div><span></span>
+        <div>
+            <input id='submitButton' type="submit" value='Submit meh!' />
+        </div>
+        <div>
+            <input id='resetButton' type="reset" value='Reset form' />
+        </div>
+    </form>
+
+</body>
+</html>
