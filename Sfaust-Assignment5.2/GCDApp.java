@@ -36,7 +36,7 @@ public class GCDApp {
 
     // recursive
     public static int recGCD(int a, int b) {
-        System.out.println("Recursive solution here...");
-        return 0;
+        if (b == 0) return a;
+        else return recGCD(b, a % b);
     }
 }
