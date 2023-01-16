@@ -25,14 +25,13 @@ public class PaintJobEstimator
         while (cont.equalsIgnoreCase("y"))
         {
             // get input for calculations
-            System.out.print("Enter paint square footage: ");
-            double paintSquareFootage = input.nextDouble();
 
-            System.out.print("Enter cost of paint(per gallon): ");
-            double gallonPaintCost = input.nextDouble();
+            double paintSquareFootage = getDouble(input, "Enter square footage of wall space to be painted: ");
+
+            double gallonPaintCost = getDouble(input, "Enter cost of paint per gallon: ");
 
             // calculate paint, labor, and costs associated with the job
-            double gallonsOfPaint = calculateGallonsPaint(paintSquareFootage);
+            int gallonsOfPaint = calculateGallonsPaint(paintSquareFootage);
 
             double hoursOfLabor = calculateLabor(paintSquareFootage);
 
@@ -64,8 +63,11 @@ public class PaintJobEstimator
                 return gallonsOfPaint;
             }
 
-            public static int calculateLabor(double paintSquareFeet){
-                int hoursOfLabor = (int) Math.ceil((paintSquareFeet / 12) * 8);
+
+            
+
+           public static int calculateLabor(double paintSquareFeet){
+                int hoursOfLabor = (int) Math.round((paintSquareFeet * 0.072));
                 return hoursOfLabor;
             }
 
@@ -77,6 +79,23 @@ public class PaintJobEstimator
             public static double calculateLaborCost(double hoursOfLabor){
                 double laborCharges = hoursOfLabor * 35;
                 return laborCharges;
+            }
+
+            public static double getDouble(Scanner sc, String prompt){
+                double d = 0.0;
+                boolean isValid = false;
+                while (isValid == false){
+                    System.out.print(prompt);
+                    if (sc.hasNextDouble()){
+                        d = sc.nextDouble();
+                        isValid = true;
+                    }
+                    else{
+                        System.out.println("Error! Invalid decimal value. Try again.");
+                    }
+                    sc.nextLine();
+                }
+                return d;
             }
  
 }
