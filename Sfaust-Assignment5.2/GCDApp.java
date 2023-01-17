@@ -1,3 +1,12 @@
+/*
+ * Name:    Scott Faust
+ * Class:   22_WI_INFO_1521_WW
+ * Date:    1/17/2023
+ * Resources: https://canvas.mccneb.edu/courses/35657/pages/module-5-lectures?module_item_id=2868637 - lecture videos
+ *            murach Java
+ * Description: recursivly finds the greatest common divisor of two numbers
+ */
+
 import java.util.Scanner;
 
 public class GCDApp {
