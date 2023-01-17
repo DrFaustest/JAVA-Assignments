@@ -1,4 +1,11 @@
-
+/*
+ * Name:    Scott Faust
+ * Class:   22_WI_INFO_1521_WW
+ * Date:    1/17/2023
+ * Resources: https://canvas.mccneb.edu/courses/35657/pages/module-5-lectures?module_item_id=2868637 - lecture videos
+ *            murach Java
+ * Description: Calculates the cost and time of a paint job given sq ft and cost per gallon
+ */
 
 
 import java.util.Scanner;
@@ -63,11 +70,8 @@ public class PaintJobEstimator
                 return gallonsOfPaint;
             }
 
-
-            
-
            public static int calculateLabor(double paintSquareFeet){
-                int hoursOfLabor = (int) Math.round((paintSquareFeet * 0.072));
+                int hoursOfLabor = (int) Math.round((paintSquareFeet / 112 * 8)); //assignment says paintSqFt/12*8 not 112 (this math works out right)
                 return hoursOfLabor;
             }
 

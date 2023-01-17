@@ -36,7 +36,7 @@ public class GCDApp {
 
     // recursive
     public static int recGCD(int a, int b) {
-        if (b == 0) return a;
-        else return recGCD(b, a % b);
+        if (b == 0) return a;   // if b is 0 then we have our GCD and return exits the method 
+        else return recGCD(b, a % b); //feeding the varriables in reversed order back to the method reassings the values of a and b to the oppisite of what they were before
     }
 }
