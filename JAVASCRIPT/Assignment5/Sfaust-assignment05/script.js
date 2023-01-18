@@ -69,7 +69,7 @@ $(document).ready( () => {
         } 
         if (mealRating == "" || mealRating == undefined) {
             //if the meal rating is empty
-            $('#mealRating').next().text("This field is required.");
+            $('#mealRatingHolder').next().text("This field is required.");
             error = true;
         }
         if(!error) {
@@ -77,12 +77,6 @@ $(document).ready( () => {
         } else {
             //In the event an error has occurred, invoke the error object’s preventDefault() method.
             //log the value of each field to the console for debugging purposes
-            console.log(firstName);
-            console.log(lastName);
-            console.log(emailAddress);
-            console.log(age);
-            console.log(mealHolder);
-            console.log(mealRating);
             e.preventDefault();
         }
     })
