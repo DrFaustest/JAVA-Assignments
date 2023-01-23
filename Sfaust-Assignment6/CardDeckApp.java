@@ -1,3 +1,13 @@
+/*Name: Scott Faust
+ * Class: 22_WI_INFO_1521_WW
+ * Date: 1/17/2023
+ * Resources: https://www.geeksforgeeks.org/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/ (ShuffleDeck method)
+ *            Class lecture videos
+ * 
+ * Description: This program creates a deck of cards, shuffles them, and then deals a hand of cards. 
+ */
+ 
+
 public class CardDeckApp {
 
     public static void main(String[] args) {
