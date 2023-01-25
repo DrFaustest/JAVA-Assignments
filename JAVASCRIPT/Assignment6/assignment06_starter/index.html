@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+    <h1>The Metroficator, v.2</h1>  
+    <h2>Convertalator Edition</h2>
+    <p>Select which units you want to convert:</p>
+    <select id='conversionSelector'>
+      <option value="m2k">Miles to Kilometers</option>
+      <option value="k2m">Kilometers to Miles</option>
+      <option value="p2k">Pounds to Kilos</option>
+      <option value="k2p">Kilos to Pounds</option>
+      <option value="f2m">Feet to Meters</option>
+      <option value="m2f">Meters to Feet</option>
+      <option value="f2c">Fahrenheit to Celsius</option>
+      <option value="c2f">Celsius to Fahrenheit</option>
+    </select>
+    <p>Input the numeric value you want to convert (numbers only):</p>
+    <p><em>(The value must be greater than zero (0))</em></p>
+    <input id="valueHolder" type="text" value="0"/>
+    <br/>
+    <br/>
+    <button id="convertButton">Convert</button>
+</body>
+</html>
