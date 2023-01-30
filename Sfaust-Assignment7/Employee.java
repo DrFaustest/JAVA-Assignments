@@ -1,40 +1,18 @@
+/*Name: Scott Faust
+ * Class: 22_WI_INFO_1521_WW
+ * Date: 1/30/2023
+ * Resources: Class lecture videos, Murach Java Programming, and the Java API
+ * 
+ * Description: This class is a template for an employee object. It contains the following fields:
+ * firstName, lastName, employeeNum, department, jobTitle, hoursWorked, payRate
+ */
+
+
+
 import java.text.NumberFormat;
 
 public class Employee {
-/*
--firstName : String 
--lastName : String 
--employeeNum : int 
--department : String 
--jobTitle : String 
--hoursWorked : double 
--payRate : double 
--currency : NumberFormat 
-*/
-/*
-<<constructor>>Employee(String fn, String ln, int en, String dept, String job, double pr) 
-<<constructor>>Employee(String fn, String ln, int en) 
-<<constructor>>Employee(Employee e) 
-<<constructor>>Employee() 
-+getFirstName() : String 
-+setFirstName(String fn) : void 
-+getLastName() : String 
-+setLastName(String ln) : void 
-+getEmployeeNumber() : int 
-+setEmployeeNumber(int en) : void 
-+getDepartment() : String 
-+setDepartment(String dept) : void 
-+getJobTitle() : String 
-+setJobTitle(String job) : void 
-+getHoursWorked() : double 
-+addHours() : void 
-+addHours(double h) : void 
-+resetHours() : void 
-+getPayRate() : double 
-+setPayRate(double pr) : void 
-+calculateWeeklyPay() : double 
-+printEmployee() : void
-*/
+
 private String firstName;
 private String lastName;
 private int employeeNum;
