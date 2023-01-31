@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Yellowtail&display=swap" rel="stylesheet">
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"></script>
+  <script src="script.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Franz Liszt's List</h1>
+    <h2>Listing Things Since 1811!</h2>
+    <p>Franz Liszt was more than a Hungarian composer, virtuoso pianist, conductor, music teacher, arranger, and organist of the Romantic era.</p>
+    <p>He was more than a writer, philanthropist, and Fraciscan tertiary.</p>
+    <p>No, Franz Liszt loved lists. </p>
+    <p>Let us pay homage to Franz Lizst's list love by adding some items to our list below.</p>
+      <div class="container">
+        <div class="left">
+        <!-- <label for="listItemInput">Input an item below:</label><br/>-->
+          <h3>Input an item below:</h3>
+          <input id="listItemInput" type="text" placeholder="Input item here"></input><br/>
+          <button id="addItemToList">Add Item to Franz Liszt's List</button> <br/>
+          <button id="clearList">Clear Franz Liszt's List</button> 
+          <br/>
+        </div>
+          <div class="right">
+            <h3>Franz Liszt's List Items:</h3>
+            <ul id="listItemsHolder"></ul>
+          </div>
+      </div>
+      <footer>
+        &copy;<span id="year"></span> - Franz Kafka. All rights reserved?
+      </footer>
+  </main>
+</body>
+</html>

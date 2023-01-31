@@ -1,0 +1,68 @@
+body {
+    margin:auto;
+    width: 90%;
+    height:100%;
+    font-family: 'Montserrat', sans-serif;
+    font-weight:800;
+    font-size:1.75em;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-image: url('img/Franz_Liszt_by_Nadar,_March_1886.jpg');  
+}
+h1 {
+    font-family: 'Yellowtail', cursive;
+    font-size:5em;
+    color:white;
+    filter:drop-shadow(30px 10px 4px #000);
+    line-height: .75em;
+    padding-top:-500;
+}
+h2 {
+    font-family: 'Yellowtail', cursive;
+    font-size:1em;
+    margin-top:-50px;
+}
+h3 {
+    font-variant: small-caps;
+    text-decoration: underline;
+    text-decoration-style: dashed;
+}
+input[type=text] {
+    width:200px;
+    padding:10px;
+    margin: 10px 0;
+    border:0;
+    border-radius:10px;
+    box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+    font-family:inherit;
+}
+button { 
+    appearance:none;
+    -webkit-appearance:none;
+    padding:10px;
+    border:none;
+    background-color:#3F51B5;
+    color:#fff;
+    font-weight:600;
+    border-radius:5px;
+    width:220px;
+}
+.container {
+    display:flex;
+    flex-direction: row;
+}
+.left {
+    flex:1 50%;
+}
+.right {
+    flex:2 50%;
+}
+footer {
+    padding:100px;
+    text-align:center;
+    font-size:.5em;
+    font-weight:100;
+}
+#listItemsHolder {
+    font-size:.5em;
+}
