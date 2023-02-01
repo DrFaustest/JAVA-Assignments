@@ -1,6 +1,10 @@
 "use strict";
 /*
 Scott Faust
+SFaust_assignment07
+INFO_2124_WW
+Yi
+1/31/2023
 */
 
 //DO NOT MODIFY THE CODE BELOW
