@@ -1,0 +1,24 @@
+body {
+    font-family: 'Hepta Slab', serif;
+    margin:auto;
+    width:80%;
+}
+
+h1, h2 {
+    margin-bottom:0px;
+}
+span {
+	color: red;
+	font-size: 87.5%;;
+}
+
+button  {
+    width:158px;
+}
+input[type="text"] {
+    width:150px;
+}
+
+#assignmentSelector {
+    display: block;
+}
