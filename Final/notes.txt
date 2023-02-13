@@ -1,0 +1,34 @@
+building a maze pathfinder
+
+the pathfinder should change any visited space to a 2
+if the finder encounters a dead end it will backtrack to the next available unvisited tile
+backtracking will change the 2 value to a 3 indicating that the path was visited, resulted in a dead end and is impassable
+to do this we will need a deadend boolean so that the changes are made but allow for multiple runs of the maze
+
+once a path is found
+scan for 0's in the 2d array 
+if found run again searching out untraveled paths 
+
+save successfull paths to a distance varriable that stores coordanates
+
+once all paths a traveled calculate the shortest path 
+
+when printing the solution
+the walls should print in the default color (white or black) *
+deadend paths should print red @ symbols
+the shortest path should be green @symbols
+
+
+
+
+
+starting/ending points
+[*,*] [*, ,*]
+[ , ] [*, ,*]
+[*,*], 
+path sections
+[*,*,*] [*, ,*] [*,*,*] [*, ,*] [*, ,*] [ ,*, ] [ ,*, ] [*,*,*]
+[ , , ] [*, ,*] [ , ,*] [ , ,*] [ , , ] [ , , ] [ , , ] [ , , ]
+[*,*,*],[*, ,*],[*, ,*],[*,*,*],[*, ,*],[ ,*, ],[*,*,*],[ ,*, ]
+                   _
+  ---      |        |      _|       +       H       U       n

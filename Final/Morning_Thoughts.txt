@@ -1,0 +1,53 @@
+if a maze were to be converted into a tree, the maximum number of nodes would be three on each branch with the end result being one of three options.
+1# victory... you finished the maze
+2# Deadend... road block
+3# infinate loop... when two paths split and come back together then the program can loop if not prevented
+
+Luckaly each node has an identification system in lon and lat quoridnates.
+
+Each branch is annotated by the quordinate of the first possible step and the next node is created at an intersection. some branches will be nodes as well
+
+class Node:
+    def __init__(self, x, y, node_type):
+        self.x = x
+        self.y = y
+        self.node_type = node_type
+        self.visited = False
+
+class Maze:
+    def __init__(self, grid):
+        self.grid = grid
+        self.nodes = []
+        self.edges = {}
+        for i in range(len(grid)):
+            for j in range(len(grid[0])):
+                node = Node(i, j, grid[i][j])
+                self.nodes.append(node)
+                neighbors = []
+                if i > 0 and grid[i-1][j] != -1 and grid[i-1][j] != 1:
+                    neighbors.append(self.nodes[(i-1)*len(grid[0]) + j])
+                if i < len(grid)-1 and grid[i+1][j] != -1 and grid[i+1][j] != 1:
+                    neighbors.append(self.nodes[(i+1)*len(grid[0]) + j])
+                if j > 0 and grid[i][j-1] != -1 and grid[i][j-1] != 1:
+                    neighbors.append(self.nodes[i*len(grid[0]) + j-1])
+                if j < len(grid[0])-1 and grid[i][j+1] != -1 and grid[i][j+1] != 1:
+                    neighbors.append(self.nodes[i*len(grid[0]) + j+1])
+                self.edges[node] = neighbors
+    
+    def bfs(self, start_node):
+        queue = []
+        start_node.visited = True
+        queue.append(start_node)
+        
+        while queue:
+            current_node = queue.pop(0)
+            if current_node.node_type == "victory":
+                return True
+            elif current_node.node_type == "deadend":
+                continue
+            else:
+                for node in self.edges[current_node]:
+                    if not node.visited:
+                        node.visited = True
+                        queue.append(node)
+        return False
