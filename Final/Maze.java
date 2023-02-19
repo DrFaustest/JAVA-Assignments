@@ -53,19 +53,26 @@ public class Maze {
     //1 = wall
     //2 = visited
     public void printMaze() {
+        String solution[][] = new String[map.length][map[0].length];
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map[i].length; j++) {
                 if (map[i][j] == -1) {
-                    System.out.print("[]");
-            } else if (map[i][j] == 0) {
-                    System.out.print("  ");
+
+                    System.out.print("[");
+                } else if (map[i][j] == 0) {
+
+                    System.out.print("-");
                 } else if (map[i][j] == 1) {
-                    System.out.print("**");
+
+                    System.out.print("*");
                 } else if (map[i][j] == 2) {
-                    System.out.print("@@");
+
+                    System.out.print("@");
                 }
             }
             System.out.println();
         }
+
     }
+    
 }

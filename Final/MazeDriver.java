@@ -43,7 +43,7 @@ public class MazeDriver {
         {1,0,1,0,1,0,0,0,1}, 
         {1,0,0,0,1,0,1,1,1}, 
         {1,1,1,0,1,0,1,0,-1}, 
-        {-1,0,0,0,0,0,1,0,1}, 
+       {-1,0,0,0,0,0,1,0,1}, 
         {1,1,0,1,0,1,1,0,1}, 
         {1,0,0,1,0,1,0,0,1}, 
         {1,1,0,1,0,1,0,0,1}, 
@@ -84,6 +84,7 @@ public class MazeDriver {
                 m.printMaze();
             } else {
                 System.out.println("The maze was not solved.");
+                m.printMaze();
             }
             System.out.println("Please select a maze to solve:");
             System.out.println("1. Maze 1");
