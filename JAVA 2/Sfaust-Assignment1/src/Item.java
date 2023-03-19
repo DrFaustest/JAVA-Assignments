@@ -1,4 +1,5 @@
 import java.text.NumberFormat;
+import java.util.ArrayList;
 
 /**
  * This file is part of INFO 1531 Module 1 assignment. This is the object that represents each item
@@ -146,14 +147,12 @@ public class Item {
      * @param obj an object to compare
      * @return True if the objects match up, false otherwise.
      */
-    @Override
-    public boolean equals(Object obj) {
-        if (obj instanceof Item i2) {
-            if (i2.getId().equalsIgnoreCase(this.id))
-            {
-                return true;
-            }
-        }
-        return false;
+    @Override 
+    public boolean equals(Object obj) { 
+        if (obj instanceof Item) { 
+            Item i2 = (Item) obj;
+        if (i2.getId().equalsIgnoreCase(this.id)) 
+        { return true; } 
+        } return false; 
     }
 }

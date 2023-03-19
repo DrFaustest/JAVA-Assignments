@@ -1,5 +1,6 @@
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  * This file is part of INFO 1531 Module 1 assignment.
@@ -51,9 +52,30 @@ public class InventoryDB {
      * then add it to the ArrayList.
      */
     public void readInProducts() {
-
-
+        try {
+            File myObj = new File(fileName);
+            Scanner myReader = new Scanner(myObj);
+            // skip the first line (header)
+            myReader.nextLine();
+            while (myReader.hasNextLine()) {
+                String data = myReader.nextLine();
+                String[] parts = data.split("\t");
+                String name = parts[0];
+                String manufacturer = parts[1];
+                String id = parts[2];
+                int invintory = Integer.parseInt(parts[3]);
+                double price = Double.parseDouble(parts[4]);
+                Item item = new Item(name, manufacturer, id, invintory, price);
+                itemList.add(item);
+            }
+            myReader.close();
+        } catch (FileNotFoundException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
+    
+    
 
     /**
      * YOUR TO DO ITEM
@@ -62,9 +84,21 @@ public class InventoryDB {
      * itemList ArrayList. This updates the qty and any **new** item that could have been added.
      */
     public void writeOutProducts() {
-
-
+        try {
+            FileWriter myWriter = new FileWriter(fileName);
+            // write the header line
+            myWriter.write("productname\tmanufacturer\tid\tinventory\tprice\n");
+            for (Item item : itemList) {
+                myWriter.write(item.getName() + "\t"+item.getManufacturer()+ "\t" +item.getId()+ "\t" +item.getInventory() + "\t" + item.getPrice() + "\n");
+            }
+            myWriter.close();
+            System.out.println("Successfully wrote to the file.");
+        } catch (IOException e) {
+            System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
     }
+    
 
     /**
      * This will print out all the items
