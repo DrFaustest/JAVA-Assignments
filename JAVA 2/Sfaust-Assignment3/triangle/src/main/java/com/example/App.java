@@ -1,3 +1,12 @@
+/*Name: Scott Faust
+ * Class: 22_SP_1531_WW Java 2
+ * Date: 3/27/2023
+ * Resources: Class lecture videos, Murach Java Programming, and the Java API, 
+ * JavaFX API, and Oracle documentation.
+ * 
+ * Description: A JavaFX application that calculates the hypotenuse of a triangle.
+ */
+
 package com.example;
 
 // import statements
@@ -97,21 +106,23 @@ public class App extends Application {
             sideBTextField.setText("");
             resultLabel.setText("Side C:");
         });
+
+        // Create the exit button
         Button exitButton = new Button("Exit");
         exitButton.setOnAction(event2 -> {
             System.exit(0);
         });
 
         // Add the controls to the input grid pane
-        inputGridPane.add(sideALabel, 0, 0);
-        inputGridPane.add(sideATextField, 1, 0);
-        inputGridPane.add(sideBLabel, 0, 1);
-        inputGridPane.add(sideBTextField, 1, 1);
-        inputGridPane.add(sideCLabel, 0, 2);
-        inputGridPane.add(calculateButton, 1, 2);
-        inputGridPane.add(resultLabel, 1, 3);
-        inputGridPane.add(resetButton, 0, 4);
-        inputGridPane.add(exitButton, 1, 4);
+        inputGridPane.add(sideALabel, 0, 0); // column 0, row 0 (top left) Label Side A
+        inputGridPane.add(sideATextField, 1, 0); // column 1, row 0 (top right) Text Field Side A
+        inputGridPane.add(sideBLabel, 0, 1); // column 0, row 1 (middle left) Label Side B
+        inputGridPane.add(sideBTextField, 1, 1); // column 1, row 1 (middle right) Text Field Side B
+        inputGridPane.add(sideCLabel, 0, 2); // column 0, row 2 (bottom left) Label Side C
+        inputGridPane.add(calculateButton, 1, 2); // column 1, row 2 (bottom right) Button Calculate
+        inputGridPane.add(resultLabel, 1, 3); // column 1, row 3 (bottom right) Label Result
+        inputGridPane.add(resetButton, 0, 4); // column 0, row 4 (bottom left) Button Reset
+        inputGridPane.add(exitButton, 1, 4); // column 1, row 4 (bottom right) Button Exit
 
         // Create the main layout container
         VBox mainVBox = new VBox(20);
@@ -120,7 +131,7 @@ public class App extends Application {
         mainVBox.getChildren().addAll(titleText, inputGridPane);
 
         // Create the scene and show the stage
-        Scene scene = new Scene(mainVBox, 840, 597);
+        Scene scene = new Scene(mainVBox, 800, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
     }
