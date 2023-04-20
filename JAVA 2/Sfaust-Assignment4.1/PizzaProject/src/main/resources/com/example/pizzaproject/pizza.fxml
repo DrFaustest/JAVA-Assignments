@@ -1,14 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="$CONTROLLER_NAME$"
-            prefHeight="400.0" prefWidth="600.0" >
-
+<?import javafx.scene.text.*?>
+<AnchorPane id="AnchorPane" prefHeight="482.0" prefWidth="458.0" xmlns="http://javafx.com/javafx/19"
+            xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <GridPane layoutX="14.0" layoutY="11.0" prefHeight="133.0" prefWidth="433.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="299.0" minWidth="10.0" prefWidth="217.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.0" minWidth="10.0" prefWidth="216.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="139.0" minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <VBox prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="First Name" />
+                        <TextField promptText="First" fx:id="firstName" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Last Name" />
+                        <TextField promptText="Last" fx:id="lastName"/>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Phone" />
+                        <TextField promptText="(000)000-0000" fx:id="phoneNumber" />
+                    </children>
+                </VBox>
+                <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Order Date" />
+                        <DatePicker fx:id="orderDate" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Time" />
+                        <MenuButton prefHeight="27.0" prefWidth="85.0" fx:id="orderTime" >
+                            <items>
+                                <MenuItem text="3:00" />
+                                <MenuItem text="3:15" />
+                                <MenuItem text="3:30" />
+                                <MenuItem text="3:45" />
+                                <MenuItem text="4:00" />
+                                <MenuItem text="4:15" />
+                                <MenuItem text="4:30" />
+                                <MenuItem text="4:45" />
+                                <MenuItem text="5:00" />
+                                <MenuItem text="5:15" />
+                                <MenuItem text="5:30" />
+                                <MenuItem text="5:45" />
+                                <MenuItem text="6:00" />
+                                <MenuItem text="6:15" />
+                                <MenuItem text="6:30" />
+                                <MenuItem text="6:45" />
+                                <MenuItem text="7:00" />
+                            </items>
+                        </MenuButton>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pickup or Delivery" />
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                            <children>
+                                <RadioButton mnemonicParsing="false" text="Pickup" fx:id="pickup"/>
+                                <RadioButton mnemonicParsing="false" text="Delivery" fx:id="delivery"/>
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </GridPane>
+        <HBox layoutX="14.0" layoutY="144.0" prefHeight="30.0" prefWidth="433.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Pizza Size:">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Text>
+                <RadioButton mnemonicParsing="True" text="Small (8in)" fx:id="small"/>
+                <RadioButton mnemonicParsing="false" text="Medium (12in)" fx:id="medium"/>
+                <RadioButton mnemonicParsing="false" text="LARGE (14in)" fx:id="large"/>
+            </children>
+        </HBox>
+        <GridPane layoutX="14.0" layoutY="198.0" prefHeight="155.0" prefWidth="433.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <VBox prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Meat / Cheese">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Text>
+                        <CheckBox mnemonicParsing="false" text="Pepperoni" fx:id="pepperoni"/>
+                        <CheckBox mnemonicParsing="false" text="Hamburger" fx:id="hamburger"/>
+                        <CheckBox mnemonicParsing="false" text="Sausage" fx:id="sausage"/>
+                        <CheckBox mnemonicParsing="false" text="Canadian Bacon" fx:id="canadianBacon"/>
+                        <CheckBox mnemonicParsing="false" text="Chicken" fx:id="chicken"/>
+                    </children>
+                </VBox>
+                <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="1">
+                    <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Fruit / Veg">
+                            <font>
+                                <Font size="18.0" />
+                            </font>
+                        </Text>
+                        <CheckBox mnemonicParsing="false" text="Green Peppers" fx:id="greenPeppers"/>
+                        <CheckBox mnemonicParsing="false" text="Red Peppers" fx:id="redPeppers"/>
+                        <CheckBox mnemonicParsing="false" text="Onions" fx:id="onions"/>
+                        <CheckBox mnemonicParsing="false" text="Mushrooms" fx:id="mushrooms"/>
+                        <CheckBox mnemonicParsing="false" text="Black Olives" fx:id="blackOlives"/>
+                    </children>
+                </VBox>
+            </children>
+        </GridPane>
+        <Text layoutX="157.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Toppings">
+            <font>
+                <Font size="18.0" />
+            </font>
+        </Text>
+        <HBox layoutX="14.0" layoutY="353.0" prefHeight="38.0" prefWidth="433.0">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Total: ">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                </Text>
+                <TextField alignment="CENTER" editable="false" prefHeight="26.0" prefWidth="93.0" promptText="\$0.00"
+                           fx:id="total"/>
+            </children>
+        </HBox>
+        <ButtonBar layoutX="16.0" layoutY="428.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="40.0" prefWidth="433.0">
+            <buttons>
+                <Button alignment="CENTER" mnemonicParsing="false" text="Calculate" onAction="#calculateTotal"/>
+                <Button mnemonicParsing="false" text="Place Order" onAction="#placeOrder"/>
+                <Button minWidth="7.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="164.0" text="Exit"
+                        onAction="#handleExit"/>
+            </buttons>
+        </ButtonBar>
+    </children>
 </AnchorPane>

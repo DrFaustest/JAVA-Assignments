@@ -1,0 +1,8 @@
+id	date	lastname	firstname	address	paint	paintfinish	color	cost
+3695	01-12-2023	Odinson	Loki	Asgard	Dutch Boy	Gloss	Emerald	586.25
+7698	02-23-2023	Wilson	Sam	1425 4th St A616, Washington, DC 20024	Behr	Satin	See-through Red	674.25
+1234	02-15-2023	Stark	Tony	10880 Malibu Point, Malibu, CA 90265	Sherwin Williams	Semi-Gloss	Hot Rod Red	2631.58
+9563	11-14-2022	Barton	Clint	Iowa	Sherwin Williams	Satin	Bullseye Yellow	156.48
+3589	02-25-2023	Maximoff	Wanda	2800 Sherwood Dr, Westview, New Jersey 08801	Dutch Boy	Flat	Tan	965.23
+4569	02-24-2023	Panther Clan	Shuri	Wakanda Palace	Sherwin Williams	Semi-Gloss	Vibranium Silver	8269.45
+2859	01-05-2023	Barnes	Bucky	166 Montague St, Brooklyn, NY 11201	Dutch Boy	Flat	Off-Black	796.18

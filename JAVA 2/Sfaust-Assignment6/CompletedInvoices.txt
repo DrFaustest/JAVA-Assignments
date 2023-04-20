@@ -1,0 +1,3 @@
+id	date	lastname	firstname	address	paint	paintfinish	color	cost
+1589	01-25-2023	Banner	Bruce	890 5th Ave, Manhattan, New York 10451	Dutch Boy	Flat	Calming Gray	1026.75
+8536	12-22-2022	Odinson	Thor	Asgard	Behr	Gloss	Cape Red	836.59
