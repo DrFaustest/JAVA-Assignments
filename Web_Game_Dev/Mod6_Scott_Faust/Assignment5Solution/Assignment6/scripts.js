@@ -2,6 +2,23 @@
 CELL_HEIGHT = 27;
 CELL_WIDTH = 37;
 
+class Ship {
+	constructor(name, size, row, col, hits) {
+	  this.name = name;
+	  this.size = size;
+	  this.row = row;
+	  this.col = col;
+	  this.hits = hits;
+	}
+  
+	hit() {
+	  this.hits--;
+	  if (this.hits === 0) {
+		console.log(`${this.name} sunk!`);
+	  }
+	}
+  }
+
 //Variables for the number of hits of each ship type
 let battleShipHits = 4;
 let destroyerHits = 3;
@@ -16,6 +33,79 @@ let patrolShipCol = Math.floor(Math.random() * 10);
 //battle ship y needs to be at the highest row of 7 so that it will stay on the stage
 let battleShipRow = Math.floor(Math.random() * 7);
 let battleShipCol = Math.floor(Math.random() * 10);
+//destroyer ship y needs to be at the highest row of 8 so that it will stay on the stage
+let destroyerRow = Math.floor(Math.random() * 8);
+let destroyerCol = Math.floor(Math.random() * 10);
+
+let battleShip = new Ship("Battleship", 4, battleShipRow, battleShipCol, 4);
+let destroyer = new Ship("Destroyer", 3, destroyerRow, destroyerCol, 3);
+let patrolShip = new Ship("Patrol Ship", 2, patrolShipRow, patrolShipCol, 2);
+
+function drawShips() {
+	ctx.fillStyle = "blue";
+	ctx.fillRect(battleShip.col * CELL_WIDTH, battleShip.row * CELL_HEIGHT, CELL_WIDTH, battleShip.size * CELL_HEIGHT);
+	ctx.fillRect(destroyer.col * CELL_WIDTH, destroyer.row * CELL_HEIGHT, CELL_WIDTH, destroyer.size * CELL_HEIGHT);
+	ctx.fillRect(patrolShip.col * CELL_WIDTH, patrolShip.row * CELL_HEIGHT, CELL_WIDTH, patrolShip.size * CELL_HEIGHT);
+  }
+  
+
+
+let canvas = document.getElementById("myCanvas");
+canvas.style.display = "none";
+let ctx = canvas.getContext("2d");
+
+render();
+
+let explosion = new Image();
+//explosion.addEventListener("load", loadHandler, false);
+explosion.src = "Images/exp2.png";
+
+function shipHitAnimation() {
+    explosionObject.animation();
+}
+
+let explosionObject = {
+	visibility: "none",
+	frame: [
+	  [187.5, 187.5, 62.5, 62.5], [125, 187.5, 62.5, 62.5], [62.5, 187.5, 62.5, 62.5], [0, 187.5, 62.5, 62.5],
+	  [187.5, 125, 62.5, 62.5], [125, 125, 62.5, 62.5], [62.5, 125, 62.5, 62.5], [0, 125, 62.5, 62.5],
+	  [187.5, 62.5, 62.5, 62.5], [125, 62.5, 62.5, 62.5], [62.5, 62.5, 62.5, 62.5], [0, 62.5, 62.5, 62.5],  
+	  [187.5, 0, 62.5, 62.5], [125, 0, 62.5, 62.5], [62.5, 0, 62.5, 62.5], [0, 0, 62.5, 62.5]
+	],
+	currentFrame: 0,
+	frameIncrement: 1,
+	animation: function() {
+		canvas.style.display = "block";
+		animate();
+		function animate() {
+		  ctx.clearRect(0, 0, canvas.width, canvas.height);
+		  ctx.drawImage(
+			explosion,
+			explosionObject.frame[explosionObject.currentFrame][0], explosionObject.frame[explosionObject.currentFrame][1],
+			explosionObject.frame[explosionObject.currentFrame][2], explosionObject.frame[explosionObject.currentFrame][3],
+			0, 0, 62.5, 62.5
+		  );
+		  explosionObject.currentFrame += explosionObject.frameIncrement;
+		  if (explosionObject.currentFrame < 15) {
+			// Set a timer to control the speed of the animation
+			setTimeout(animate, 100); // 100 milliseconds between frames
+		  } else {
+			// end the animation and hide the canvas
+			canvas.style.display = "none";
+			explosionObject.currentFrame = 0;
+			console.log("Animation finished");
+		  }
+		}
+	  }
+	  
+  };
+  
+  
+  
+    
+    
+
+
 //check to make sure the battleship and patrol ship are not overlapping
 if(battleShipRow >= patrolShipRow && battleShipRow <= patrolShipRow + 2)
 {
@@ -26,9 +116,7 @@ if(battleShipRow >= patrolShipRow && battleShipRow <= patrolShipRow + 2)
 		battleShipCol = Math.floor(Math.random() * 10);
 	}
 }
-//destroyer ship y needs to be at the highest row of 8 so that it will stay on the stage
-let destroyerRow = Math.floor(Math.random() * 8);
-let destroyerCol = Math.floor(Math.random() * 10);
+
 
 //check to make sure the destroyer does not overlap the other two ships
 if(destroyerRow >= patrolShipRow && destroyerRow <= patrolShipRow + 2)
@@ -112,26 +200,6 @@ let guesses = 0;
 //game state variable
 let gameWon = false;
 
-//Game object variables
-let patrolShip = document.createElement("img");
-let battleShip = document.createElement("img");
-let destroyer = document.createElement("img");
-
-patrolShip.setAttribute("class", "patrolShip");
-stage.appendChild(patrolShip);
-battleShip.setAttribute("class", "battleShip");
-stage.appendChild(battleShip);
-destroyer.setAttribute("class", "destroyer");
-stage.appendChild(destroyer);
-//set the location of the ship img tags on the screen
-patrolShip.style.top = patrolShipY + "px";
-patrolShip.style.left = patrolShipX + "px";
-battleShip.style.top = battleShipY + "px";
-battleShip.style.left = battleShipX + "px";
-destroyer.style.top = destroyerY + "px";
-destroyer.style.left = destroyerX + "px";
-
-
 //Input and output variables
 let inputX = document.querySelector("#inputX");
 let inputY = document.querySelector("#inputY");
@@ -212,57 +280,47 @@ function playGame()
 			output.innerHTML = "Column guess not recognized, please guess again.";
 	}
 	
-	//if(guessRow >= patrolShipX && guessRow <= patrolShipX + 13)
-	if(map[guessRow][guessColumnNumber] != 0)
-	{
-		//There is a ship in this cell
-		//Determine which ship was hit
-		let shipHit = "";
-		if(map[guessRow][guessColumnNumber] === 1)
-		{
-			//Hit the battleship, subtract the number of hits from the battleship
-			battleShipHits--;
-			shipHit = "Battleship";
-			output.innerHTML = "You hit my " + shipHit + ". There are " + battleShipHits + " hits left.";
-		}else if(map[guessRow][guessColumnNumber] === 2)
-		{
-			//Hit the destroyer, subtract the number of hits from the destroyer
-			destroyerHits--;
-			shipHit = "Destroyer";
-			output.innerHTML = "You hit my " + shipHit + ". There are " + destroyerHits + " hits left.";
-		}else if(map[guessRow][guessColumnNumber] === 3)
-		{
-			//Hit the patrolShip, subtract the number of hits from the patrolShip
-			patrolShipHits--;
-			shipHit = "Patrolship";
-			output.innerHTML = "You hit my " + shipHit + ". There are " + patrolShipHits + " hits left.";
-		}
-		
-		if(battleShipHits === 0 && destroyerHits === 0 && patrolShipHits === 0)
-			{
-				gameWon = true;
-				endGame();
-			}
-	}
-	else
-	{
-		output.innerHTML = "Miss!" 
-	}
+	let ship = map[guessRow][guessColumnNumber];
+
+  if (ship != 0) {
+    if (ship === 1) {
+      battleShip.hit();
+      shipHitAnimation();
+      output.innerHTML = `You hit my ${battleShip.name}. There are ${battleShip.hits} hits left.`;
+    } else if (ship === 2) {
+      destroyer.hit();
+      shipHitAnimation();
+      output.innerHTML = `You hit my ${destroyer.name}. There are ${destroyer.hits} hits left.`;
+    } else if (ship === 3) {
+      patrolShip.hit();
+      shipHitAnimation();
+      output.innerHTML = `You hit my ${patrolShip.name}. There are ${patrolShip.hits} hits left.`;
+    }
+
+    if (battleShip.hits === 0 && destroyer.hits === 0 && patrolShip.hits === 0) {
+      gameWon = true;
+      endGame();
+    }
+  } else {
+    output.innerHTML = "Miss!";
+  }
 }
 
-function endGame()
-{
-	patrolShip.style.visibility = "visible";
-	if(gameWon)
-	{
-		output.innerHTML = "You sunk all of my ships! It took you " + guesses + " guesses";
-		render();
+function endGame() {
+	if (gameWon) {
+	  output.innerHTML =
+		"You sunk all of my ships! It took you " + guesses + " guesses";
+	  render();
 	}
-}
+  }
+  
 
-function render()
-{
-	patrolShip.style.visibility = "visible";
-	battleShip.style.visibility = "visible";
-	destroyer.style.visibility = "visible";
-}
+function render() {
+	drawShips();
+  }
+  
+
+
+  
+
+  

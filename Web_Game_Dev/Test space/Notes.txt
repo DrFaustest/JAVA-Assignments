@@ -1,0 +1,5 @@
+EXP2 = 4x4 grid 250x250 (62.5px blocks)
+OceanGrid = 11x11 grid 400x300px (36.36px x 27.27 px blocks)
+Battleship = 16x105px
+Destroyer = 15x75px
+Patrol = 13x55px

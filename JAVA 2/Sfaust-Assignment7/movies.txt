@@ -1,0 +1,30 @@
+title	year	rating
+The Sixth Sense	1999	4.1	
+Jurassic Park	1993	4.05	
+Rear Window	1954	4.25	
+Rocky	1976	4.0	
+Ford v Ferrari	2019	4.0	
+The Birds	1963	3.7	
+Logan	2017	4.0	
+The Matrix	1999	4.35	
+Inception	2010	4.4	
+Schindler's List	1993	4.5	
+The Dark Knigh	2008	4.5	
+Avengers: Endgame	2019	4.2	
+Spider-Man: Into the Spider-Verse	2018	4.2	
+Top Gun: Maverick	2022	4.1	
+Joker	2019	4.15	
+The Tomorrow War	2021	3.25	
+Don't Look Up	2021	3.6	
+Spaceballs	1987	3.6	
+Fantastic Beasts: The Secrets of Dumbledore	2022	3.1	
+A Man Called Otto	2022	3.7	
+The Goonies	1985	3.9	
+To Kill a Mockingbird	1962	4.2	
+The Whale	2022	3.65	
+The Outsiders	1983	3.5	
+Casablanca	1942	4.25	
+Grumpy Old Men	1993	3.5	
+Spiderhead	2022	2.7	
+1917	2019	4.1	
+Once Upon a Time in Hollywood	2019	3.8	
