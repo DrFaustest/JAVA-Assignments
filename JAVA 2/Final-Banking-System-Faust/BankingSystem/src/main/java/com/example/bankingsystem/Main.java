@@ -1,2 +1,15 @@
-package com.example.bankingsystem;public class Main {
+package com.example.bankingsystem;
+import javafx.application.Application;
+import javafx.stage.Stage;
+
+public class Main extends Application {
+
+    @Override
+    public void start(Stage primaryStage) {
+        new MainView(primaryStage);
+    }
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 }
