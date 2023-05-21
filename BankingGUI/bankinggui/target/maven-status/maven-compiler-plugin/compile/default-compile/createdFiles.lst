@@ -1,0 +1,5 @@
+com\bank\gui\App.class
+module-info.class
+com\bank\gui\PrimaryController.class
+com\bank\gui\TestDatabaseInitializer.class
+com\bank\gui\SecondaryController.class

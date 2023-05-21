@@ -1,5 +1,7 @@
 package com.example.bankingsystem;
 
+import java.sql.SQLException;
+
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
@@ -24,12 +26,19 @@ public class CustomerView extends VBox {
         phoneNumberField.setPromptText("Phone Number");
 
         createCustomerButton = new Button("Create Customer");
-        createCustomerButton.setOnAction(e -> createCustomer());
+        createCustomerButton.setOnAction(e -> {
+            try {
+                createCustomer();
+            } catch (SQLException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+        });
 
         getChildren().addAll(firstNameField, lastNameField, addressField, phoneNumberField, createCustomerButton);
     }
 
-    private void createCustomer() {
+    private void createCustomer() throws SQLException {
         String firstName = firstNameField.getText();
         String lastName = lastNameField.getText();
         String address = addressField.getText();
@@ -38,8 +47,6 @@ public class CustomerView extends VBox {
         Customer customer = new Customer(0, firstName, lastName, address, phoneNumber);
 
         Database db = new Database();
-        db.getConnection();
         db.addCustomer(customer);
-        db.disconnect();
     }
 }

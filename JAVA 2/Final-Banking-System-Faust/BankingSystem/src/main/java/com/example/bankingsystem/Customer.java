@@ -1,13 +1,10 @@
 package com.example.bankingsystem;
-
 public class Customer {
     private int id;
     private String firstName;
     private String lastName;
     private String address;
     private String phoneNumber;
-
-    // constructor, getters, and setters(all fields are required and only firstname, lastname,  address and phoneNumber can be updated)
     public Customer(int id, String firstName, String lastName, String address, String phoneNumber) {
         this.id = id;
         this.firstName = firstName;
@@ -16,48 +13,35 @@ public class Customer {
         this.phoneNumber = phoneNumber;
 
     }
-
     public int getId() {
         return id;
     }
-
     public String getFirstName() {
         return firstName;
     }
-
     public String getLastName() {
         return lastName;
     }
-
     public String getAddress() {
         return address;
     }
-
     public String getPhoneNumber() {
         return phoneNumber;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
 
     }
-
     public void setLastName(String lastName) {
         this.lastName = lastName;
 
     }
-
     public void setAddress(String address) {
         this.address = address;
-
     }
-
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
-
     }
-
-    // toString method
     @Override
     public String toString() {
         return "Customer{" +
@@ -65,8 +49,6 @@ public class Customer {
                 ", firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", address='" + address
                 + '\'' + ", phoneNumber='" + phoneNumber + '\'' + '}';
     }
-
-    // equals method
     @Override
     public boolean equals(Object obj) {
         if (obj == this)
@@ -78,8 +60,6 @@ public class Customer {
                 && customer.getLastName().equals(this.getLastName()) && customer.getAddress().equals(this.getAddress())
                 && customer.getPhoneNumber().equals(this.getPhoneNumber());
     }
-
-    // hashCode method
     @Override
     public int hashCode() {
         int result = 17;

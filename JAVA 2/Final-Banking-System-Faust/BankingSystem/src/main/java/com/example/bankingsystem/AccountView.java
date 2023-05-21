@@ -1,10 +1,8 @@
 package com.example.bankingsystem;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
-
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 public class AccountView extends VBox {
     private TextField accountNumberField;
     private TextField balanceField;
@@ -28,10 +26,24 @@ public class AccountView extends VBox {
         customerIdField.setPromptText("Customer ID");
 
         createAccountButton = new Button("Create Account");
-        createAccountButton.setOnAction(e -> createAccount());
+        createAccountButton.setOnAction(e -> {
+            try {
+                createAccount();
+            } catch (SQLException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+        });
 
         calculateInterestButton = new Button("Calculate Interest");
-        calculateInterestButton.setOnAction(e -> calculateInterest());
+        calculateInterestButton.setOnAction(e -> {
+            try {
+                calculateInterest();
+            } catch (SQLException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
+        });
 
         getChildren().addAll(accountNumberField, balanceField, interestRateField, customerIdField, createAccountButton, calculateInterestButton);
     }
@@ -56,8 +68,8 @@ public class AccountView extends VBox {
         db.disconnect();
 
         if (account != null) {
-            double interest = account.getBalance() * account.getInterestRate() / 100;
-            balanceField.setText(String.valueOf(account.getBalance() + interest));
+            double interest = ((Account) account).getBalance() * ((Account) account).getInterestRate() / 100;
+            balanceField.setText(String.valueOf(((Account) account).getBalance() + interest));
         } else {
             Alert alert = new Alert(Alert.AlertType.ERROR, "Account not found");
             alert.showAndWait();

@@ -1,14 +1,10 @@
 package com.example.bankingsystem;
-
 public class Account {
     private int id;
     private String accountNumber;
     private double balance;
     private double interestRate;
     private int customerId;
-
-    // constructor, getters, and setters (all fields are required and only balance,
-    // interestRate, and customerId can be updated)
     public Account(int id, String accountNumber, double balance, double interestRate, int customerId) {
         this.id = id;
         this.accountNumber = accountNumber;
@@ -16,40 +12,30 @@ public class Account {
         this.interestRate = interestRate;
         this.customerId = customerId;
     }
-
     public int getId() {
         return id;
     }
-
     public String getAccountNumber() {
         return accountNumber;
     }
-
     public double getBalance() {
         return balance;
     }
-
     public double getInterestRate() {
         return interestRate;
     }
-
     public int getCustomerId() {
         return customerId;
     }
-
     public void setBalance(double balance) {
         this.balance = balance;
     }
-
     public void setInterestRate(double interestRate) {
         this.interestRate = interestRate;
     }
-
     public void setCustomerId(int customerId) {
         this.customerId = customerId;
     }
-
-    // toString method
     @Override
     public String toString() {
         return "Account{" +
@@ -60,8 +46,6 @@ public class Account {
                 ", customerId=" + customerId +
                 '}';
     }
-
-    // equals method
     @Override
     public boolean equals(Object obj) {
         if (obj == this)
@@ -75,8 +59,6 @@ public class Account {
                 account.getInterestRate() == this.getInterestRate() &&
                 account.getCustomerId() == this.getCustomerId();
     }
-
-    // hashCode method
     @Override
     public int hashCode() {
         int result = 17;
@@ -89,5 +71,4 @@ public class Account {
         result = 31 * result + customerId;
         return result;
     }
-
 }
