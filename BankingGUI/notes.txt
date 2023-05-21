@@ -1,0 +1,29 @@
+Customer Table:----------------------------
+id (INTEGER, PRIMARY KEY, AUTOINCREMENT)
+firstName (TEXT, NOT NULL)
+lastName (TEXT, NOT NULL)
+address (TEXT)
+phoneNumber (TEXT)
+accountId (INTEGER, NOT NULL, FOREIGN KEY references Account(id))
+Account Table:-----------------------------
+id (INTEGER, PRIMARY KEY, AUTOINCREMENT)
+balance (REAL, DEFAULT 0)
+interestRate (REAL, NOT NULL)
+AccountTransaction Table:------------------
+id (INTEGER, PRIMARY KEY, AUTOINCREMENT)
+accountId (INTEGER, NOT NULL, FOREIGN KEY references Account(id))
+type (TEXT, NOT NULL)
+amount (REAL, NOT NULL)
+
+DatabaseUtil.
+getConnection()
+disconnect()
+getAccountBalance(int accountId) - return balance
+updateAccountBalance(int accountId, double newBalance)
+getAccountInterestRate(int accountId) - return interestRate
+addAccountTransaction(AccountTransaction transaction)
+generateAccountStatment(int accountId, Date startDate, Date endDate) - return accountStatment
+editCustomerProfile(int customerId, String firstName, String lastName, String address, String phoneNumber)
+linkToExistingAccount(int customerId, int accountId)
+createNewAccount(double initialDeposit, double interestRate)
+closeAccount(int accountId)
